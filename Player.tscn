@@ -32,6 +32,9 @@ position = Vector2( 437.517, 334.203 )
 mode = 2
 gravity_scale = 1.1
 script = ExtResource( 2 )
+jump_speed = null
+float_speed = null
+float_frames = null
 move_speed = 500.0
 
 [node name="Sprite" type="Sprite" parent="."]
@@ -44,7 +47,7 @@ shape = SubResource( 1 )
 "BottomRays",
 ]]
 enabled = true
-cast_to = Vector2( 0, 35 )
+cast_to = Vector2( 0, 33.5 )
 collide_with_areas = true
 
 [node name="BR_Ray" type="RayCast2D" parent="." groups=[
@@ -52,7 +55,7 @@ collide_with_areas = true
 ]]
 position = Vector2( 25, 0 )
 enabled = true
-cast_to = Vector2( 0, 35 )
+cast_to = Vector2( 0, 33.5 )
 collide_with_areas = true
 
 [node name="BL_Ray" type="RayCast2D" parent="." groups=[
@@ -60,7 +63,7 @@ collide_with_areas = true
 ]]
 position = Vector2( -25.866, 0 )
 enabled = true
-cast_to = Vector2( 0, 35 )
+cast_to = Vector2( 0, 33.5 )
 collide_with_areas = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

@@ -21,6 +21,8 @@ func _ready():
    floated_frames = 0
    set_physics_process(true)
    bottom_rays = get_tree().get_nodes_in_group("BottomRays")
+   for ray in bottom_rays:
+      ray.set_collide_with_areas(false)
    used_dash = false
    particles = get_node("Particles2D")
    sprite = get_node("Sprite")
@@ -65,7 +67,7 @@ func _physics_process(delta):
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
    elif !particles.is_emitting():
-      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
+      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x * 0.75, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
    else:
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), current_velocity.y))
 
@@ -76,7 +78,8 @@ func _input(event):
       if event.is_action_pressed("jump"):
          if touching_ground():
             velocity.y -= jump_speed
-      if event.is_action_pressed("dash") and !used_dash and !touching_ground():
+      if event.is_action_pressed("dash") and !used_dash and !touching_ground() and !particles.is_emitting():
+         velocity = Vector2(0.0, 0.0)
          var keypress_vector: Vector2 = Vector2(0.0, 0.0)
 
          if Input.is_action_pressed("left"):
@@ -92,9 +95,15 @@ func _input(event):
             else:
                keypress_vector.x += move_speed
          if Input.is_action_pressed("up"):
-            keypress_vector.y -= move_speed
+            if !Input.is_action_pressed("right") and !Input.is_action_pressed("left"):
+               keypress_vector.y -= move_speed * 1.2
+            else:
+               keypress_vector.y -= move_speed
          if Input.is_action_pressed("down"):
-            keypress_vector.y += move_speed
+            if !Input.is_action_pressed("right") and !Input.is_action_pressed("left"):
+               keypress_vector.y += move_speed * 1.2
+            else:
+               keypress_vector.y += move_speed
          
          if keypress_vector != Vector2(0.0, 0.0):
             velocity = keypress_vector * 1.1
