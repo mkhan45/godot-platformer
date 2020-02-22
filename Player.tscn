@@ -30,7 +30,7 @@ color_ramp = SubResource( 3 )
 [node name="Player" type="RigidBody2D"]
 position = Vector2( 437.517, 334.203 )
 mode = 2
-gravity_scale = 1.05
+gravity_scale = 1.1
 script = ExtResource( 2 )
 move_speed = 500.0
 
@@ -58,7 +58,7 @@ collide_with_areas = true
 [node name="BL_Ray" type="RayCast2D" parent="." groups=[
 "BottomRays",
 ]]
-position = Vector2( -25, 0 )
+position = Vector2( -25.866, 0 )
 enabled = true
 cast_to = Vector2( 0, 35 )
 collide_with_areas = true

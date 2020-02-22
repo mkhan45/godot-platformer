@@ -46,8 +46,10 @@ func _physics_process(delta):
 
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
+   elif !particles.is_emitting():
+      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.2), lerp(current_velocity.y, target_velocity.y, 0.6)))
    else:
-      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.1), lerp(current_velocity.y, target_velocity.y, 0.6)))
+      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.025), lerp(current_velocity.y, target_velocity.y, 0.6)))
 
 func _input(event):
    if event is InputEventKey:
@@ -57,14 +59,12 @@ func _input(event):
          if touching_ground():
             velocity.y -= jump_speed
       if event.is_action_pressed("dash") and !used_dash:
-         used_dash = true
-         particles.set_emitting(true)
          var keypress_vector: Vector2 = Vector2(0.0, 0.0)
 
          if Input.is_action_pressed("left"):
-            keypress_vector.x -= move_speed
+            keypress_vector.x -= move_speed * 1.25
          if Input.is_action_pressed("right"):
-            keypress_vector.x += move_speed
+            keypress_vector.x += move_speed * 1.25
          if Input.is_action_pressed("up") or Input.is_action_pressed("jump"):
             keypress_vector.y -= move_speed
          if Input.is_action_pressed("down"):
@@ -72,5 +72,7 @@ func _input(event):
          
          if keypress_vector != Vector2(0.0, 0.0):
             velocity = keypress_vector * 1.35
+            particles.set_emitting(true)
+            used_dash = true
 
       set_linear_velocity(velocity)
