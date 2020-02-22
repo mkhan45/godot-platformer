@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Static.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://box.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PhysicsMaterial" id=1]
@@ -16,27 +17,8 @@ physics_material_override = SubResource( 1 )
 current = true
 
 [node name="Floor" parent="." instance=ExtResource( 1 )]
-position = Vector2( 610.969, 597.81 )
-
-[node name="Wall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 23.0658, 358.974 )
-scale = Vector2( 1, 25 )
-
-[node name="Wall1" parent="." instance=ExtResource( 1 )]
-position = Vector2( 266.912, 397.388 )
-scale = Vector2( 25, 1 )
-
-[node name="Wall2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 960.036, 489.248 )
-scale = Vector2( 25, 1 )
-
-[node name="Wall3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1900.33, 492.894 )
-scale = Vector2( 25, 1 )
-
-[node name="Wall4" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1433.96, 330.261 )
-scale = Vector2( 25, 1 )
+position = Vector2( 514.737, 601.511 )
+scale = Vector2( 50, 0.8 )
 
 [node name="Box" parent="." instance=ExtResource( 4 )]
 position = Vector2( 407.988, 535.535 )
@@ -55,3 +37,305 @@ position = Vector2( 239.236, 536.297 )
 
 [node name="Box6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 314.734, 534.852 )
+
+[node name="SpikeGroup" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1182.71, 304.516 )
+scale = Vector2( 0.99, 1 )
+
+[node name="Spikes2" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 30.8004, 0 )
+
+[node name="Spikes3" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 62.6816, 0 )
+
+[node name="Spikes4" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 94.9736, 0 )
+
+[node name="Spikes5" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 125.774, 0 )
+
+[node name="Spikes6" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 157.655, 0 )
+
+[node name="Spikes7" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 189.075, 0 )
+
+[node name="Spikes8" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 219.875, 0 )
+
+[node name="Spikes9" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 251.756, 0 )
+
+[node name="Spikes10" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 284.048, 0 )
+
+[node name="Spikes11" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 314.849, 0 )
+
+[node name="Spikes12" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 346.73, 0 )
+
+[node name="Spikes15" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 378.586, 0 )
+
+[node name="Spikes14" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 409.386, 0 )
+
+[node name="Spikes13" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 441.267, 0 )
+
+[node name="Spikes16" parent="SpikeGroup" instance=ExtResource( 3 )]
+position = Vector2( 472.626, 0 )
+
+[node name="SpikeGroup3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1171.72, 344.223 )
+scale = Vector2( 0.26, -0.25 )
+
+[node name="Spikes2" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 30.8004, 0 )
+
+[node name="Spikes3" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 62.6816, 0 )
+
+[node name="Spikes4" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 94.9736, 0 )
+
+[node name="Spikes5" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 125.774, 0 )
+
+[node name="Spikes6" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 157.655, 0 )
+
+[node name="Spikes7" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 189.075, 0 )
+
+[node name="Spikes8" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 219.875, 0 )
+
+[node name="Spikes9" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 251.756, 0 )
+
+[node name="Spikes10" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 284.048, 0 )
+
+[node name="Spikes11" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 314.849, 0 )
+
+[node name="Spikes12" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 346.73, 0 )
+
+[node name="Spikes15" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 378.586, 0 )
+
+[node name="Spikes14" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 409.386, 0 )
+
+[node name="Spikes13" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 441.267, 0 )
+
+[node name="Spikes16" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 472.626, 0 )
+
+[node name="Spikes31" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 503.416, 0 )
+
+[node name="Spikes30" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 535.297, 0 )
+
+[node name="Spikes29" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 567.589, 0 )
+
+[node name="Spikes28" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 598.389, 0 )
+
+[node name="Spikes27" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 630.271, 0 )
+
+[node name="Spikes26" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 661.69, 0 )
+
+[node name="Spikes25" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 692.49, 0 )
+
+[node name="Spikes24" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 724.371, 0 )
+
+[node name="Spikes23" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 756.663, 0 )
+
+[node name="Spikes22" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 787.464, 0 )
+
+[node name="Spikes21" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 819.345, 0 )
+
+[node name="Spikes20" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 851.201, 0 )
+
+[node name="Spikes19" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 882.001, 0 )
+
+[node name="Spikes18" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 913.882, 0 )
+
+[node name="Spikes17" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 945.241, 0 )
+
+[node name="Spikes61" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 978.811, 0 )
+
+[node name="Spikes60" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1010.69, 0 )
+
+[node name="Spikes59" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1042.98, 0 )
+
+[node name="Spikes58" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1073.78, 0 )
+
+[node name="Spikes57" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1105.67, 0 )
+
+[node name="Spikes56" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1137.09, 0 )
+
+[node name="Spikes55" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1167.89, 0 )
+
+[node name="Spikes54" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1199.77, 0 )
+
+[node name="Spikes53" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1232.06, 0 )
+
+[node name="Spikes52" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1262.86, 0 )
+
+[node name="Spikes51" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1294.74, 0 )
+
+[node name="Spikes50" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1326.6, 0 )
+
+[node name="Spikes49" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1357.4, 0 )
+
+[node name="Spikes48" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1389.28, 0 )
+
+[node name="Spikes47" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1420.64, 0 )
+
+[node name="Spikes46" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1451.43, 0 )
+
+[node name="Spikes45" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1483.31, 0 )
+
+[node name="Spikes44" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1515.6, 0 )
+
+[node name="Spikes43" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1546.4, 0 )
+
+[node name="Spikes42" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1578.28, 0 )
+
+[node name="Spikes41" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1609.7, 0 )
+
+[node name="Spikes40" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1640.5, 0 )
+
+[node name="Spikes39" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1672.38, 0 )
+
+[node name="Spikes38" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1704.67, 0 )
+
+[node name="Spikes37" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1735.47, 0 )
+
+[node name="Spikes36" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1767.36, 0 )
+
+[node name="Spikes35" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1799.21, 0 )
+
+[node name="Spikes34" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1830.01, 0 )
+
+[node name="Spikes33" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1861.89, 0 )
+
+[node name="Spikes32" parent="SpikeGroup3" instance=ExtResource( 3 )]
+position = Vector2( 1893.25, 0 )
+
+[node name="SpikeGroup2" parent="." instance=ExtResource( 3 )]
+position = Vector2( -3150.43, 1080.55 )
+scale = Vector2( 25, 1 )
+
+[node name="Spikes2" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 30.8004, 0 )
+
+[node name="Spikes3" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 62.6816, 0 )
+
+[node name="Spikes4" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 94.9736, 0 )
+
+[node name="Spikes5" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 125.774, 0 )
+
+[node name="Spikes6" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 157.655, 0 )
+
+[node name="Spikes7" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 189.075, 0 )
+
+[node name="Spikes8" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 219.875, 0 )
+
+[node name="Spikes9" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 251.756, 0 )
+
+[node name="Spikes10" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 284.048, 0 )
+
+[node name="Spikes11" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 314.849, 0 )
+
+[node name="Spikes12" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 346.73, 0 )
+
+[node name="Spikes15" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 378.586, 0 )
+
+[node name="Spikes14" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 409.386, 0 )
+
+[node name="Spikes13" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 441.267, 0 )
+
+[node name="Spikes16" parent="SpikeGroup2" instance=ExtResource( 3 )]
+position = Vector2( 472.626, 0 )
+
+[node name="Wall2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 960.036, 489.248 )
+scale = Vector2( 25, 1 )
+
+[node name="Wall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 23.0657, 358.974 )
+scale = Vector2( 1, 25 )
+
+[node name="Wall1" parent="." instance=ExtResource( 1 )]
+position = Vector2( 266.912, 397.388 )
+scale = Vector2( 25, 1 )
+
+[node name="Wall3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1900.33, 492.894 )
+scale = Vector2( 25, 1 )
+
+[node name="Wall4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1417.22, 330.261 )
+scale = Vector2( 25, 1 )

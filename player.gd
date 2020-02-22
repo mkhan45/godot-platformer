@@ -5,8 +5,8 @@ extends RigidBody2D
 # var a = 2
 # var b = "text"
 export (float) var jump_speed = 230
-export (float) var float_speed = 1800
-export (int) var float_frames = 15
+export (float) var float_speed = 2500
+export (int) var float_frames = 16
 export (float) var move_speed = 550
 
 var floated_frames: int
@@ -40,6 +40,10 @@ func _physics_process(delta):
    if touching_ground():
       floated_frames = 0
       used_dash = false
+   if particles.is_emitting():
+      set_gravity_scale(0.0)
+   else:
+      set_gravity_scale(1.1)
 
    if used_dash:
       sprite.set_modulate(Color(0.0, 0.0, 0.5, 0.5))
@@ -61,9 +65,9 @@ func _physics_process(delta):
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
    elif !particles.is_emitting():
-      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.2), lerp(current_velocity.y, target_velocity.y, 0.85)))
+      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
    else:
-      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), lerp(current_velocity.y, target_velocity.y, 1.0)))
+      set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), current_velocity.y))
 
 func _input(event):
    if event is InputEventKey:
@@ -77,21 +81,23 @@ func _input(event):
 
          if Input.is_action_pressed("left"):
             if !Input.is_action_pressed("up") and !Input.is_action_pressed("down"):
-               keypress_vector.x -= move_speed * 1.75
+               keypress_vector.x -= move_speed * 1.9
+               velocity.y = 0.0
             else:
                keypress_vector.x -= move_speed
          if Input.is_action_pressed("right"):
             if !Input.is_action_pressed("up") and !Input.is_action_pressed("down"):
-               keypress_vector.x += move_speed * 1.75
+               keypress_vector.x += move_speed * 1.9
+               velocity.y = 0.0
             else:
                keypress_vector.x += move_speed
-         if Input.is_action_pressed("up") or Input.is_action_pressed("jump"):
+         if Input.is_action_pressed("up"):
             keypress_vector.y -= move_speed
          if Input.is_action_pressed("down"):
             keypress_vector.y += move_speed
          
          if keypress_vector != Vector2(0.0, 0.0):
-            velocity = keypress_vector * 1.35
+            velocity = keypress_vector * 1.1
             particles.set_emitting(true)
             used_dash = true
 
