@@ -12,6 +12,9 @@
 position = Vector2( 558.499, 336.254 )
 physics_material_override = SubResource( 1 )
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+
 [node name="Floor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 610.969, 597.81 )
 
@@ -28,7 +31,11 @@ position = Vector2( 960.036, 489.248 )
 scale = Vector2( 25, 1 )
 
 [node name="Wall3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 1210.73, 387.701 )
+position = Vector2( 1900.33, 492.894 )
+scale = Vector2( 25, 1 )
+
+[node name="Wall4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1433.96, 330.261 )
 scale = Vector2( 25, 1 )
 
 [node name="Box" parent="." instance=ExtResource( 4 )]
