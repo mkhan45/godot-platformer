@@ -26,7 +26,7 @@ position = Vector2( 431.37, 319.888 )
 position = Vector2( 239.236, 536.297 )
 
 [node name="Box6" parent="." instance=ExtResource( 2 )]
-position = Vector2( 2117.69, 152.361 )
+position = Vector2( 2211.5, 137.079 )
 
 [node name="Wall2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 960.036, 489.248 )
@@ -38,7 +38,12 @@ scale = Vector2( 1, 25 )
 physics_material_override = SubResource( 1 )
 
 [node name="Wall8" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2783.64, 327.188 )
+position = Vector2( 2786.81, 225.641 )
+scale = Vector2( 1, 35 )
+physics_material_override = SubResource( 1 )
+
+[node name="Wall9" parent="." instance=ExtResource( 1 )]
+position = Vector2( 2102.61, -29.98 )
 scale = Vector2( 1, 25 )
 physics_material_override = SubResource( 1 )
 
@@ -55,8 +60,8 @@ position = Vector2( 1912.27, 492.231 )
 scale = Vector2( 25, 1 )
 
 [node name="Wall7" parent="." instance=ExtResource( 1 )]
-position = Vector2( 2485.79, 559.038 )
-scale = Vector2( 25, 1 )
+position = Vector2( 2504.95, 559.038 )
+scale = Vector2( 26.9013, 1.04963 )
 
 [node name="Wall4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 1439.78, 330.261 )
@@ -301,7 +306,7 @@ position = Vector2( 1893.25, 0 )
 
 [node name="SpikeGroup4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 2242.17, 544.598 )
-scale = Vector2( 0.362, 0.25 )
+scale = Vector2( 0.405181, 0.25 )
 
 [node name="Spikes2" parent="SpikeGroup4" instance=ExtResource( 4 )]
 position = Vector2( 30.8004, 0 )
@@ -476,7 +481,7 @@ position = Vector2( 441.267, 0 )
 position = Vector2( 472.626, 0 )
 
 [node name="Gem" parent="." instance=ExtResource( 3 )]
-position = Vector2( 739.526, 250.152 )
+position = Vector2( 783.625, 286.307 )
 
 [node name="Gem2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 2654.91, 409.305 )
+position = Vector2( 2703.64, 360.105 )

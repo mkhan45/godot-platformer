@@ -23,6 +23,10 @@ func _physics_process(delta):
          player.used_dash = false
          player.floated_frames = 0
 
+   if player.touching_ground():
+         get_node("Sprite").set_visible(true)
+         get_node("Area2D/CollisionPolygon2D").set_disabled(false)
+
 func _on_Area2D_body_entered(node):
    if node == player:
       overlapping_player = true
