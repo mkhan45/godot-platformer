@@ -9,9 +9,14 @@ export (String, FILE) var scene
 export (float) var jump_speed = 230
 export (float) var float_speed = 2500
 export (float) var move_speed = 550
+export (float) var climb_up_speed = 200
+export (float) var climb_down_speed = 250
 
 export (int) var float_frames = 16
 var floated_frames: int
+
+export (int) var climb_frames = 120
+var climbed_frames: int
 
 export (int) var dash_frames = 30
 var dashed_frames: int
@@ -19,6 +24,7 @@ var is_dashing: bool
 var used_dash: bool
 
 var bottom_rays: Array
+var side_rays: Array
 var particles: Particles2D
 var particles2: Particles2D
 
@@ -28,6 +34,7 @@ var sprite: Sprite
 func _ready():
    set_physics_process(true)
    bottom_rays = get_tree().get_nodes_in_group("BottomRays")
+   side_rays = get_tree().get_nodes_in_group("SideRays")
    particles = get_node("Particles2D")
    particles2 = get_node("Particles2D2")
 
@@ -40,6 +47,8 @@ func _ready():
    is_dashing = false
    dashed_frames = false
 
+   climbed_frames = 0
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -51,12 +60,21 @@ func touching_ground():
          return true
    return false
 
+func touching_wall():
+   for ray in side_rays:
+      if ray.is_colliding():
+         return true
+   return false
+
 func update_dash():
    if is_dashing:
       dashed_frames += 1
       if dashed_frames > dash_frames:
          is_dashing = false
          dashed_frames = 0
+   if touching_wall():
+      dashed_frames = 0
+      is_dashing = false
 
 func _physics_process(delta):
    update_dash()
@@ -64,6 +82,11 @@ func _physics_process(delta):
    if touching_ground():
       floated_frames = 0
       used_dash = false
+
+   if touching_wall():
+      floated_frames = 0
+      climbed_frames += 1
+
    if is_dashing:
       set_gravity_scale(0.0)
    else:
@@ -88,10 +111,21 @@ func _physics_process(delta):
 
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
-   elif !is_dashing:
+   elif !is_dashing and !touching_wall():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x * 0.75, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
-   else:
+   elif !touching_wall():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), current_velocity.y))
+
+   if touching_wall() and !touching_ground() and climbed_frames < climb_frames:
+      target_velocity.y = 0.0
+      target_velocity.x *= 0.05
+      if Input.is_action_pressed("up"):
+         target_velocity.y -= climb_up_speed
+      if Input.is_action_pressed("down"):
+         target_velocity.y += climb_down_speed
+      set_linear_velocity(target_velocity)
+   elif touching_ground() and !touching_wall():
+      climbed_frames = 0
 
 func _input(event):
    if event is InputEventKey:
@@ -100,7 +134,10 @@ func _input(event):
       if event.is_action_pressed("jump"):
          if touching_ground():
             velocity.y -= jump_speed
-      if event.is_action_pressed("dash") and !used_dash and !touching_ground() and !is_dashing:
+         elif touching_wall():
+            velocity.y -= jump_speed * 0.75
+
+      if event.is_action_pressed("dash") and !used_dash and !touching_ground() and !is_dashing and !touching_wall():
          velocity = Vector2(0.0, 0.0)
          var keypress_vector: Vector2 = Vector2(0.0, 0.0)
 

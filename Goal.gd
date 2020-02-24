@@ -18,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-   set_rotation(get_rotation() + 0.035)
+   set_rotation(get_rotation() + 0.35 * delta)
    if won:
       flown_frames += 1
       var position = get_position()

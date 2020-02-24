@@ -9,6 +9,7 @@
 friction = 0.0
 
 [node name="World" type="Node2D"]
+position = Vector2( 9.25317, 9.25305 )
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
 position = Vector2( 210.063, 598.092 )
@@ -19,12 +20,12 @@ position = Vector2( 757.222, 1176.36 )
 scale = Vector2( 18.9704, 0.630271 )
 
 [node name="Floor9" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1349.14, 1048.41 )
+position = Vector2( 1374.99, 1047.12 )
 scale = Vector2( 18.9704, 0.630271 )
 
 [node name="Floor4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 785.509, 1382.81 )
-scale = Vector2( 38.5227, 0.685919 )
+position = Vector2( 797.14, 1384.1 )
+scale = Vector2( 39.9026, 0.685919 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 576.601, 709.735 )
@@ -42,7 +43,7 @@ scale = Vector2( 0.828946, 39.3754 )
 physics_material_override = SubResource( 1 )
 
 [node name="Floor8" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1163.66, 1213.71 )
+position = Vector2( 1189.51, 1213.71 )
 scale = Vector2( 0.646765, 17.2904 )
 physics_material_override = SubResource( 1 )
 
@@ -51,7 +52,8 @@ position = Vector2( 102.78, 512.098 )
 scene = "res://Level2.tscn"
 
 [node name="Spikes" parent="." instance=ExtResource( 3 )]
-position = Vector2( 417.852, 1361.19 )
+position = Vector2( 429.483, 1362.48 )
+scale = Vector2( 1.02223, 0.990967 )
 
 [node name="Spikes2" parent="Spikes" instance=ExtResource( 3 )]
 position = Vector2( 31.5875, 0 )
@@ -126,7 +128,47 @@ position = Vector2( 695.218, 0 )
 position = Vector2( 725.001, 0 )
 
 [node name="Gem" parent="." instance=ExtResource( 4 )]
-position = Vector2( 743.723, 1279.97 )
+position = Vector2( 744.889, 1263.64 )
 
 [node name="Gem2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1051.13, 1279.97 )
+position = Vector2( 1052.3, 1263.64 )
+
+[node name="Spikes2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1176.25, 1305.15 )
+rotation = -1.5708
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Spikes3" parent="Spikes2" instance=ExtResource( 3 )]
+
+[node name="Spikes4" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 31.2109, 0 )
+
+[node name="Spikes5" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 62.4221, 0 )
+
+[node name="Spikes8" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 93.4365, 0 )
+
+[node name="Spikes7" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 124.647, 0 )
+
+[node name="Spikes6" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 155.859, 0 )
+
+[node name="Spikes11" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 186.258, 0 )
+
+[node name="Spikes10" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 217.469, 0 )
+
+[node name="Spikes9" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 248.68, 0 )
+
+[node name="Spikes14" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 278.404, 0 )
+
+[node name="Spikes13" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 309.615, 0 )
+
+[node name="Spikes12" parent="Spikes2" instance=ExtResource( 3 )]
+position = Vector2( 340.826, 0 )

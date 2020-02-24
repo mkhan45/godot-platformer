@@ -69,16 +69,16 @@ cast_to = Vector2( 0, 33.5 )
 [node name="BR_Ray" type="RayCast2D" parent="." groups=[
 "BottomRays",
 ]]
-position = Vector2( 25, 0 )
+position = Vector2( 20, 0 )
 enabled = true
-cast_to = Vector2( 0, 33.5 )
+cast_to = Vector2( -2, 33.5 )
 
 [node name="BL_Ray" type="RayCast2D" parent="." groups=[
 "BottomRays",
 ]]
-position = Vector2( -25.866, 0 )
+position = Vector2( -20, 0 )
 enabled = true
-cast_to = Vector2( 0, 33.5 )
+cast_to = Vector2( 2, 33.5 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
 show_behind_parent = true
@@ -102,3 +102,49 @@ texture = ExtResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="LT_Ray" type="RayCast2D" parent="." groups=[
+"LeftRays",
+"SideRays",
+]]
+position = Vector2( 0, -25 )
+enabled = true
+cast_to = Vector2( -33, 0 )
+
+[node name="LM_Ray" type="RayCast2D" parent="." groups=[
+"LeftRays",
+"SideRays",
+]]
+enabled = true
+cast_to = Vector2( -33, 0 )
+
+[node name="LB_Ray" type="RayCast2D" parent="." groups=[
+"LeftRays",
+"SideRays",
+]]
+position = Vector2( 0, 25 )
+enabled = true
+cast_to = Vector2( -33, 0 )
+
+[node name="RT_Ray" type="RayCast2D" parent="." groups=[
+"RightRays",
+"SideRays",
+]]
+position = Vector2( 0, -25 )
+enabled = true
+cast_to = Vector2( 33, 0 )
+
+[node name="RM_Ray" type="RayCast2D" parent="." groups=[
+"RightRays",
+"SideRays",
+]]
+enabled = true
+cast_to = Vector2( 33, 0 )
+
+[node name="RB_Ray" type="RayCast2D" parent="." groups=[
+"RightRays",
+"SideRays",
+]]
+position = Vector2( 0, 25 )
+enabled = true
+cast_to = Vector2( 33, 0 )

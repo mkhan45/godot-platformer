@@ -82,7 +82,7 @@ position = Vector2( 2877.73, -114.91 )
 scale = Vector2( 10, 1 )
 
 [node name="Wall11" parent="." instance=ExtResource( 1 )]
-position = Vector2( 5044.8, -593.501 )
+position = Vector2( 5215.11, -593.501 )
 scale = Vector2( 13.68, 1 )
 
 [node name="SpikeGroup" parent="." instance=ExtResource( 4 )]
@@ -661,15 +661,40 @@ position = Vector2( 2703.64, 360.105 )
 position = Vector2( 3452.32, -444.25 )
 
 [node name="Gem4" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4041.75, -444.25 )
+position = Vector2( 4165.08, -444.25 )
 
 [node name="Gem5" parent="." instance=ExtResource( 3 )]
-position = Vector2( 4621.32, -444.25 )
+position = Vector2( 4812.18, -444.25 )
 
 [node name="Goal" parent="." instance=ExtResource( 5 )]
-position = Vector2( 5052.81, -675.372 )
+position = Vector2( 5223.12, -675.372 )
 next_level = "res://Level2.tscn"
 
 [node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 806.177, 343.726 )
 scene = "res://Level1.tscn"
+
+[node name="Spikes" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2762.29, 284.943 )
+rotation = -1.5708
+
+[node name="Spikes2" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 30.9512, 0 )
+
+[node name="Spikes3" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 62.2828, 0 )
+
+[node name="Spikes5" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 94.4171, 0 )
+
+[node name="Spikes4" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 125.749, 0 )
+
+[node name="Spikes8" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 156.703, 0 )
+
+[node name="Spikes7" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 188.838, 0 )
+
+[node name="Spikes6" parent="Spikes" instance=ExtResource( 4 )]
+position = Vector2( 220.169, 0 )
