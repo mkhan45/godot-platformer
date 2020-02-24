@@ -111,7 +111,7 @@ func _physics_process(delta):
 
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
-   elif !is_dashing and !touching_wall():
+   elif !is_dashing and (!touching_wall() or climbed_frames >= climb_frames):
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x * 0.75, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
    elif !touching_wall():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), current_velocity.y))
