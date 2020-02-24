@@ -21,7 +21,6 @@ func _physics_process(delta):
          get_node("Sprite").set_visible(false)
          get_node("Area2D/CollisionPolygon2D").set_disabled(true)
          player.used_dash = false
-         player.floated_frames = 0
 
    if player.touching_ground():
          get_node("Sprite").set_visible(true)

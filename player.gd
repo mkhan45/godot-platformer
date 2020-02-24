@@ -4,6 +4,8 @@ extends RigidBody2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export (String, FILE) var scene
+
 export (float) var jump_speed = 230
 export (float) var float_speed = 2500
 export (float) var move_speed = 550
@@ -133,3 +135,6 @@ func _input(event):
             used_dash = true
 
       set_linear_velocity(velocity)
+
+func die():
+   get_tree().change_scene(scene)

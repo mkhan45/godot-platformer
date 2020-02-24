@@ -5,10 +5,11 @@ extends Node2D
 # var a = 2
 # var b = "text"
 
+var scene: Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    pass # Replace with function body.
+   scene = find_parent("Level*")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +18,4 @@ func _ready():
 
 func _on_Area2D_body_entered(body: Node):
    if body.get_name() == "Player":
-      get_tree().change_scene("res://World.tscn")
+      body.die()
