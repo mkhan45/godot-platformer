@@ -12,7 +12,7 @@ friction = 0.0
 position = Vector2( 9.25317, 9.25305 )
 
 [node name="Floor" parent="." instance=ExtResource( 2 )]
-position = Vector2( 210.063, 598.092 )
+position = Vector2( 208.21, 598.092 )
 scale = Vector2( 20.9028, 0.680179 )
 
 [node name="Floor6" parent="." instance=ExtResource( 2 )]
@@ -32,13 +32,13 @@ position = Vector2( 841.338, 1384.1 )
 scale = Vector2( 42.5573, 0.607121 )
 
 [node name="Floor2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 576.601, 709.735 )
-scale = Vector2( 0.983751, 47.5262 )
+position = Vector2( 576.601, 487.132 )
+scale = Vector2( 0.983751, 69 )
 physics_material_override = SubResource( 1 )
 
 [node name="Floor7" parent="." instance=ExtResource( 2 )]
-position = Vector2( 988.996, 707.105 )
-scale = Vector2( 0.983751, 47.5262 )
+position = Vector2( 988.996, 484.502 )
+scale = Vector2( 0.983751, 69 )
 physics_material_override = SubResource( 1 )
 
 [node name="Floor3" parent="." instance=ExtResource( 2 )]

@@ -105,7 +105,7 @@ func _physics_process(delta):
       target_velocity.x += move_speed
    if Input.is_action_pressed("left"):
       target_velocity.x -= move_speed
-   if Input.is_action_pressed("jump") and !touching_ground() and !used_dash and current_velocity.y < 0.0 and floated_frames < float_frames:
+   if Input.is_action_pressed("jump") and !touching_ground() and !used_dash and current_velocity.y < 0.0 and floated_frames < float_frames and !touching_wall():
       floated_frames += 1
       target_velocity.y -= float_speed * delta
 
@@ -113,10 +113,10 @@ func _physics_process(delta):
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
    elif !is_dashing and (!touching_wall() or climbed_frames >= climb_frames):
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x * 0.75, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
-   elif !touching_wall():
+   elif !touching_wall() or climbed_frames >= climb_frames:
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.015), current_velocity.y))
 
-   if touching_wall() and !touching_ground() and climbed_frames < climb_frames:
+   if touching_wall() and climbed_frames < climb_frames and !is_dashing:
       target_velocity.y = 0.0
       target_velocity.x *= 0.05
       if Input.is_action_pressed("up"):
@@ -137,7 +137,11 @@ func _input(event):
          elif touching_wall():
             velocity.y -= jump_speed * 0.75
 
-      if event.is_action_pressed("dash") and !used_dash and !touching_ground() and !is_dashing and !touching_wall():
+      if event.is_action_pressed("dash")\
+         and !used_dash and\
+         !touching_ground()\
+         and !is_dashing\
+         and (!touching_wall() or climbed_frames >= climb_frames):
          velocity = Vector2(0.0, 0.0)
          var keypress_vector: Vector2 = Vector2(0.0, 0.0)
 
@@ -170,6 +174,7 @@ func _input(event):
             particles2.set_emitting(true)
             is_dashing = true
             used_dash = true
+            climbed_frames = 0
 
       set_linear_velocity(velocity)
 
