@@ -1,10 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Spikes.gd" type="Script" id=1]
 [ext_resource path="res://spike.png" type="Texture" id=2]
-
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16.1498, 16.1571 )
 
 [node name="Spikes" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,6 +12,6 @@ script = ExtResource( 1 )
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 1 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( -15.9133, 15.8778, 0.283516, -17.177, 16.0396, 15.8778 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

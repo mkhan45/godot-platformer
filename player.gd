@@ -134,8 +134,9 @@ func _input(event):
       if event.is_action_pressed("jump"):
          if touching_ground():
             velocity.y -= jump_speed
-         elif touching_wall():
+         elif touching_wall() and climbed_frames + 25 < climb_frames:
             velocity.y -= jump_speed * 0.75
+            climbed_frames += 25
 
       if event.is_action_pressed("dash")\
          and !used_dash and\
