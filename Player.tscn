@@ -111,10 +111,19 @@ position = Vector2( 0, -30 )
 enabled = true
 cast_to = Vector2( -33, 0 )
 
-[node name="LM_Ray" type="RayCast2D" parent="." groups=[
+[node name="LMB_Ray" type="RayCast2D" parent="." groups=[
 "LeftRays",
 "SideRays",
 ]]
+position = Vector2( 0, 10 )
+enabled = true
+cast_to = Vector2( -33, 0 )
+
+[node name="LMT_Ray" type="RayCast2D" parent="." groups=[
+"LeftRays",
+"SideRays",
+]]
+position = Vector2( 0, -10 )
 enabled = true
 cast_to = Vector2( -33, 0 )
 
@@ -134,10 +143,19 @@ position = Vector2( 0, -30 )
 enabled = true
 cast_to = Vector2( 33, 0 )
 
-[node name="RM_Ray" type="RayCast2D" parent="." groups=[
+[node name="RMT_Ray" type="RayCast2D" parent="." groups=[
 "RightRays",
 "SideRays",
 ]]
+position = Vector2( 0, -10 )
+enabled = true
+cast_to = Vector2( 33, 0 )
+
+[node name="RMB_Ray" type="RayCast2D" parent="." groups=[
+"RightRays",
+"SideRays",
+]]
+position = Vector2( 0, 10 )
 enabled = true
 cast_to = Vector2( 33, 0 )
 
