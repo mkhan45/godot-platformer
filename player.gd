@@ -25,6 +25,9 @@ var used_dash: bool
 
 var bottom_rays: Array
 var side_rays: Array
+var left_rays: Array
+var right_rays: Array
+
 var particles: Particles2D
 var particles2: Particles2D
 
@@ -35,6 +38,8 @@ func _ready():
    set_physics_process(true)
    bottom_rays = get_tree().get_nodes_in_group("BottomRays")
    side_rays = get_tree().get_nodes_in_group("SideRays")
+   left_rays = get_tree().get_nodes_in_group("LeftRays")
+   right_rays = get_tree().get_nodes_in_group("RightRays")
    particles = get_node("Particles2D")
    particles2 = get_node("Particles2D2")
 
@@ -66,6 +71,18 @@ func touching_wall():
          return true
    return false
 
+func touching_left():
+   for ray in left_rays:
+      if ray.is_colliding():
+         return true
+   return false
+
+func touching_right():
+   for ray in right_rays:
+      if ray.is_colliding():
+         return true
+   return false
+
 func update_dash():
    if is_dashing:
       dashed_frames += 1
@@ -84,7 +101,6 @@ func _physics_process(delta):
       used_dash = false
 
    if touching_wall():
-      floated_frames = 0
       climbed_frames += 1
 
    if is_dashing:
@@ -106,8 +122,8 @@ func _physics_process(delta):
    if Input.is_action_pressed("left"):
       target_velocity.x -= move_speed
    if Input.is_action_pressed("jump") and !touching_ground() and !used_dash and current_velocity.y < 0.0 and floated_frames < float_frames and !touching_wall():
-      floated_frames += 1
-      target_velocity.y -= float_speed * delta
+         floated_frames += 1
+         target_velocity.y -= float_speed * delta
 
    if touching_ground():
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
@@ -132,11 +148,14 @@ func _input(event):
       var velocity: Vector2 = get_linear_velocity()
 
       if event.is_action_pressed("jump"):
+         print(touching_wall())
          if touching_ground():
             velocity.y -= jump_speed
-         elif touching_wall() and climbed_frames + 25 < climb_frames:
-            velocity.y -= jump_speed * 0.75
-            climbed_frames += 25
+         elif touching_wall() and climbed_frames < climb_frames:
+            velocity.y -= jump_speed * 2.75
+            if touching_left():
+               velocity.x += jump_speed * 5.5
+            # climbed_frames += 25
 
       if event.is_action_pressed("dash")\
          and !used_dash and\
