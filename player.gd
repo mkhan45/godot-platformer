@@ -96,7 +96,7 @@ func update_dash():
 func _physics_process(delta):
    update_dash()
 
-   if touching_ground():
+   if touching_ground() and !is_dashing:
       floated_frames = 0
       used_dash = false
 
@@ -125,7 +125,7 @@ func _physics_process(delta):
          floated_frames += 1
          target_velocity.y -= float_speed * delta
 
-   if touching_ground():
+   if touching_ground() and !is_dashing:
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x, 0.5), current_velocity.y))
    elif !is_dashing and (!touching_wall() or climbed_frames >= climb_frames):
       set_linear_velocity(Vector2(lerp(current_velocity.x, target_velocity.x * 0.75, 0.2), lerp(clamp(current_velocity.y, -50, 3000), target_velocity.y, 0.95)))
@@ -158,8 +158,7 @@ func _input(event):
             # climbed_frames += 25
 
       if event.is_action_pressed("dash")\
-         and !used_dash and\
-         !touching_ground()\
+         and !used_dash\
          and !is_dashing\
          and (!touching_wall() or climbed_frames >= climb_frames):
          velocity = Vector2(0.0, 0.0)
